@@ -1,0 +1,27 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"npx babel-node extra"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rohit0203/express-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rohit0203/express-server/issues"
+  },
+  "homepage": "https://github.com/Rohit0203/express-server#readme"
+}

@@ -1,4 +1,4 @@
-function drawDiamond(rows)
+export default function drawDiamond(rows)
 {
     for(let i=0;i<=rows;i++)
     {
@@ -20,13 +20,4 @@ function drawDiamond(rows)
        console.log();     
     } 
 }
-let rows =process.argv[2]
-if(rows<11 && rows>2)
-{
-    drawDiamond(rows);
-}
-else
-{
- console.error('Rows should be in between 2 to 10');
- 
-}
+

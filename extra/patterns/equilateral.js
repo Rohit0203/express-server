@@ -1,4 +1,4 @@
-function drawEquilateral(rows)
+ export default function drawEquilateral(rows)
 {
     for(let i=0;i<=rows;i++)
     {
@@ -11,15 +11,8 @@ function drawEquilateral(rows)
        console.log();     
     }     
 }
-let rows =process.argv[2]
-if(rows<11 && rows>2)
-{
-    drawEquilateral(rows);
-}
-else
-{
- console.error('Rows should be in between 2 to 10');
-}
+
+
 
 
 

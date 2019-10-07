@@ -1,13 +1,5 @@
-let permissions={
-    'getUsers': {
-    all: ['head-trainer'],
-    read : ['trainee', 'trainer'],
-    write : ['trainer'],
-    delete: [],
-    }
-    }
-
-hasPermissions=(moduleName,role,permissionType)=>
+import {permissions} from './constants';
+const  hasPermissions=(moduleName,role,permissionType)=>
 {
     if(Object.keys(permissions).includes(moduleName))
     {
@@ -30,4 +22,5 @@ hasPermissions=(moduleName,role,permissionType)=>
         return ('Module Name is not persent');
     }
 }
-console.log(hasPermissions('getUsers','trainedd','read'));
+
+export default hasPermissions;
