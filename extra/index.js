@@ -1,10 +1,10 @@
 import {drawEquilateral,drawDiamond} from './patterns/index';
 import {hasPermissions,validateUsers} from './utils/index';
-import {permissions,users} from './utils/constants'
+import {users} from './utils/constants'
 
-// console.log(hasPermissions('getUsers','trainee','read')); // for permissions 
+ console.log(hasPermissions('getUsers','trainee','read')); // for permissions 
 
-// validateUsers(users)
+ validateUsers(users) 
 
 /* THIS IS FOR DRAWING PATTERN */
 // let rows =process.argv[2]
