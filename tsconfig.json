@@ -17,7 +17,7 @@
     ]
   },
   "include": [
-    "extraTs"
+    "extraTs","src"
   ],
   "exclude": [
     "node_modues"
