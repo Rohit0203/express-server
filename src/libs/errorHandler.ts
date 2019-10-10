@@ -3,7 +3,7 @@ const notFound = () => {
       error: "Not Found",
       message: "error",
       status: 500,
-      timestamp: Date.now();
+      timestamp: Date.now()
     };
     return errorReturn;
   };

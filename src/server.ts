@@ -1,6 +1,8 @@
 import Config from "./config/IConfig";
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import { request } from 'https';
+const router=require('./router');
 const app = express();
 export default class HttpServer {
   constructor(private config: Config) {}
@@ -9,9 +11,7 @@ export default class HttpServer {
     this.initBodyParser();
   }
   private setUpRoutes() {
-    app.get("/health-check", (req, res) => {
-      res.send("<h1>I am OK</h1>");
-    });
+    app.use('/',router)
   }
   public run() {
     app.listen(this.config.PORT, () => {
