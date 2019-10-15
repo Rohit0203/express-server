@@ -2,7 +2,7 @@ import Config from "./config/IConfig";
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import { request } from 'https';
-import  router from './router';
+import router from './router'
 const app = express();
 export default class HttpServer {
   constructor(private config: Config) {}
@@ -11,7 +11,7 @@ export default class HttpServer {
     this.initBodyParser();
   }
   private setUpRoutes() {
-    app.use('/',router)
+   app.use('/api', router)
   }
   public run() {
     app.listen(this.config.PORT, () => {

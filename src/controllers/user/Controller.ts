@@ -1,22 +1,28 @@
-export default class Controller
-{
- public get()
- {
-     return 'This is get Method'
-
- }
- public post()
- {
- return 'This is post Method'
- }
- public put()
- {
-     return 'This is put Method'
-
- }
- public delete()
- {
-     return 'This is delete Method'
-
- }
-}
+export default class Controllers {
+    get(req, res, next) {
+    res.status(200).json({
+    msg: "This is GET method of User",
+    params: req.query
+    })
+    }
+    post(req, res, next) {
+    res.status(201).json({
+    msg: "This is POST method of User",
+    body: req.body
+    })
+    }
+    put(req, res, next) {
+    res.status(201).json({
+    msg: "This is PUT method of User",
+    body: req.body
+    })
+    }
+    delete(req, res, next) {
+    res.status(200).json({
+    msg: "This is DELETE method of User",
+    param: req.params
+    })
+    }
+    }
+   
+   

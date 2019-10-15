@@ -1,19 +1,11 @@
 import * as express from 'express';
+import Controllers from './Controller'
 
-const app=express();
+const controller=new Controllers();
+const traineeRoutes=express();
 
-app.get('/get',(req,res)=>{
-    res.send('Get method invoked');
-
-})
-app.post('/post',(req,res)=>{
-    res.send('POST method invoked');
-    
-})
-app.put('/put',(req,res)=>{
-    res.send('put method invoked');
-    
-})
-app.delete('/delete',(req,res)=>{
-    res.send('Delete method invoked');
-})
+traineeRoutes.get('/getTrainees',controller.get)
+traineeRoutes.post('/postTrainees',controller.post)
+traineeRoutes.put('/putTrainees',controller.put)
+traineeRoutes.delete('/deleteTrainees',controller.delete)
+export default traineeRoutes;
