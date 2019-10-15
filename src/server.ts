@@ -2,7 +2,7 @@ import Config from "./config/IConfig";
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import { request } from 'https';
-const router=require('./router');
+import  router from './router';
 const app = express();
 export default class HttpServer {
   constructor(private config: Config) {}

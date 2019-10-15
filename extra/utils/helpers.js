@@ -4,7 +4,6 @@ const validateEmail=(email)=>
     if(pattern.test(email))
     {
         return true;
-        
     }
     return false;
 }

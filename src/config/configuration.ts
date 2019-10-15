@@ -1,8 +1,11 @@
 import * as dotenv from 'dotenv';
-const result = dotenv.config();
-if (result.error) {
-  throw result.error;
-}
-const { parsed: envs } = result;
+import Config from "./IConfig"
+dotenv.config();
+
+const envs: Config = {
+  PORT: Number(process.env.PORT),
+  NODE_ENV: String(process.env.NODE_ENV),
+};
 Object.freeze(envs)
-export default {envs}
+export default envs
+

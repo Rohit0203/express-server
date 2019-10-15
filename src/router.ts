@@ -8,5 +8,16 @@ const rout=new Controller();
 router.get('/get',(req,res)=>{
     res.send(rout.get())
 })
-module.exports=router;
+router.post('/post',(req,res)=>{
+    res.send(rout.post());
+})
+router.put('/put',(req,res)=>{
+    res.send(rout.put());
+})
+router.delete('/delete',(req,res)=>{
+    res.send(rout.delete());
+})
+
+
+export default router;
 

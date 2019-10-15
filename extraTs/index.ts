@@ -7,7 +7,7 @@ const dd= new DrawDiamond();
 const de=new DrawEquilateral();
 const user =new User();
 user.validateUsers(users);
-hasPermissions('getUsers','trainee','read')
+hasPermissions('getUsers','trainee','red')
 
 
 
