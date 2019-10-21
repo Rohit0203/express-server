@@ -1,70 +1,69 @@
 export default {
-    create: {
-        id: {
-          isAlphanumeric: true,
-          in: ["body"],
-          isEmpty: {
-            errorMessage: "Id is Required",
-            negated: true,
-          },
-          custom: {
-            options: (value) => {
-              console.log("Value", value);
-              return true;
-            },
-          },
-        },
-        name: {
-          in: ["body"],
-          isEmpty: {
-            errorMessage: "Name is Required",
-            negated: true,
-          },
-          isLength: {
-            errorMessage: "Name should be 4 character long",
-            options: { min: 4 },
-          },
-          matches: {
-            options: [/(\w+)$/],
-            errorMessage: "Name should be in format",
-          },
+  create: {
+    id: {
+      custom: {
+        options: (value: any) => {
+          console.log('Value', value);
+          return true;
         },
       },
-      delete: {
-        id: {
-          in: ['params', 'query'],
-          errorMessage: 'ID must be Int',
-          isInt: true,
-          toInt: true
+      in: ['body'],
+      isAlphanumeric: true,
+      isEmpty: {
+        errorMessage: 'Id is Required',
+        negated: true,
+      },
+    },
+    name: {
+      in: ['body'],
+      isEmpty: {
+        errorMessage: 'Name is Required',
+        negated: true,
+      },
+      isLength: {
+        errorMessage: 'Name should be 4 character long',
+        options: { min: 4 },
+      },
+      matches: {
+        errorMessage: 'Name should be in format',
+        options: [/(\w+)$/],
+      },
+    },
+  },
+  delete: {
+    id: {
+      errorMessage: 'ID must be Int',
+      in: ['params', 'query'],
+      isInt: true,
+      toInt: true
+    },
+  },
+  get: {
+    limit: {
+      errorMessage: 'Limit is invalid',
+      in: ['query'],
+      isInt: true,
+    },
+    skip: {
+      in: ['query'],
+      isInt: true,
+    },
+  },
+  update: {
+    dataToUpdate: {
+      custom: {
+        options: (dataToUpdate: any) => {
+          console.log(dataToUpdate);
+          return true;
         },
       },
-      get: {
-        skip: {
-          isInt: true,
-          in: ["query"],
-        },
-        limit: {
-          isInt: true,
-          in: ["query"],
-          errorMessage: "Limit is invalid",
-        },
-    
-      },
-      update: {
-        id: {
-          in: ['params', 'query'],
-          errorMessage: 'ID must be Int',
-          isInt: true,
-          toInt: true
-        },
-        dataToUpdate: {
-          in: ["body"],
-          custom: {
-            options: (dataToUpdate) => {
-              console.log(dataToUpdate);
-              return true;
-            },
-          },
-        },
-      }
-}
+      in: ['body'],
+    },
+    id: {
+      errorMessage: 'ID must be Int',
+      in: ['params', 'query'],
+      isInt: true,
+      toInt: true
+    },
+  }
+};

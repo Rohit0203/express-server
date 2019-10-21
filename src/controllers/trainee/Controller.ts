@@ -1,28 +1,30 @@
+import { NextFunction, Request, Response } from 'express';
 export default class Controllers {
-    get(req, res, next) {
-    res.status(200).json({
-    msg: "This is GET method of trainee",
-    params: req.query
-    })
+    public get(req: Request, res: Response, next: NextFunction) {
+        res.status(200).json({
+            msg: 'This is GET method of Trainee',
+            params: req.query
+        });
     }
-    post(req, res, next) {
-    res.status(201).json({
-    msg: "This is POST method of trainee",
-    body: req.body
-    })
+    public post(req: Request, res: Response, next: NextFunction) {
+        res.status(201).json({
+            body: req.body,
+            msg: 'This is POST method of Trainee',
+
+        });
     }
-    put(req, res, next) {
-    res.status(201).json({
-    msg: "This is PUT method of trainee",
-    body: req.body
-    })
+    public put(req: Request, res: Response, next: NextFunction) {
+        res.status(201).json({
+            body: req.body,
+            msg: 'This is PUT method of Trainee',
+
+        });
     }
-    delete(req, res, next) {
-    res.status(200).json({
-    msg: "This is DELETE method of trainee",
-    param: req.params
-    })
+    public delete(req: Request, res: Response, next: NextFunction) {
+        res.status(200).json({
+            msg: 'This is DELETE method of Trainee',
+            param: req.params
+        });
     }
-    }
-   
-   
+}
+

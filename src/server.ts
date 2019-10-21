@@ -1,17 +1,14 @@
-import Config from "./config/IConfig";
-import * as bodyParser from "body-parser";
-import * as express from "express";
+import * as bodyParser from 'body-parser';
+import * as express from 'express';
 import { request } from 'https';
-import router from './router'
+import Config from './config/IConfig';
+import router from './router';
 const app = express();
 export default class HttpServer {
-  constructor(private config: Config) {}
+  constructor(private config: Config) { }
   public bootstrap() {
     this.setUpRoutes();
     this.initBodyParser();
-  }
-  private setUpRoutes() {
-   app.use('/api', router)
   }
   public run() {
     app.listen(this.config.PORT, () => {
@@ -24,5 +21,8 @@ export default class HttpServer {
 
     // parse application/json
     app.use(bodyParser.json());
+  }
+  private setUpRoutes() {
+    app.use('/api/v1', router);
   }
 }

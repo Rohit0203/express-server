@@ -4,7 +4,7 @@ export default class User {
   private validUsers: number = 0;
   private invalidUsers: number = 0;
   public validateUsers = (
-    users: { traineeEmail: string; reviewerEmail: string }[]
+    users: Array<{ traineeEmail: string; reviewerEmail: string }>
   ) => {
     users.forEach(element => {
       const { traineeEmail: t, reviewerEmail: r } = element;
