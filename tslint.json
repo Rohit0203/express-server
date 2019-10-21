@@ -20,6 +20,12 @@
 
     "semicolon": [true, "always", "ignore-bound-class-methods"],
 
+    "no-consecutive-blank-lines": true,
+
+    "object-literal-sort-keys": false,
+
+    "no-implicit-dependencies": false,
+
     "whitespace": [
       true,
 

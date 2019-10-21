@@ -34,7 +34,7 @@
     "start:extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/tslint/bin/tslint -c tslint.json -p tsconfig.json --exclude 'node_modules/**/*.{j,t}s'",
+    "lint": "/**/*.{j,t}s",
     "lint:fix": "npm run lint --fix"
   },
   "husky": {
@@ -43,8 +43,8 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "prettier --single-quote --write",
+    "*.{ts,js}": [
+      "npm run lint:fix",
       "git add"
     ]
   },

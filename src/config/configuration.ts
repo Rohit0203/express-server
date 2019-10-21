@@ -10,4 +10,3 @@ const envs: Config = {
 
 Object.freeze(envs);
 export default envs;
-
