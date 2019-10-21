@@ -19,7 +19,8 @@
     "@types/express": "^4.17.1",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "husky": "^3.0.8",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
     "mongoose": "^5.7.5",
     "tsc-watch": "^4.0.0",
     "tslint": "^5.20.0",
@@ -35,6 +36,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/tslint/bin/tslint -c tslint.json -p tsconfig.json --exclude 'node_modules/**/*.{j,t}s'",
     "lint:fix": "npm run lint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
