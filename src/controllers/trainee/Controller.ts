@@ -10,14 +10,12 @@ export default class Controllers {
         res.status(201).json({
             body: req.body,
             msg: 'This is POST method of Trainee',
-
         });
     }
     public put(req: Request, res: Response, next: NextFunction) {
         res.status(201).json({
             body: req.body,
             msg: 'This is PUT method of Trainee',
-
         });
     }
     public delete(req: Request, res: Response, next: NextFunction) {

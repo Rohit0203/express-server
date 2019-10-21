@@ -1,11 +1,11 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import { request } from 'https';
-import Config from './config/IConfig';
+import IConfig from './config/IConfig';
 import router from './router';
 const app = express();
 export default class HttpServer {
-  constructor(private config: Config) { }
+  constructor(private config: IConfig) { }
   public bootstrap() {
     this.setUpRoutes();
     this.initBodyParser();
