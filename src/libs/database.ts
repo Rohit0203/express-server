@@ -2,16 +2,22 @@ import * as mongoose from 'mongoose';
 import seedInitial from '../libs/seedData';
 
 export default class Database {
-    public open(url: string) {
-        return mongoose.connect(url, { useNewUrlParser: true }, err => {
-            if (err) {
-                return err;
-            }
-            seedInitial();
-            return true;
-        });
-    }
-    public disconnect() {
-        mongoose.connection.close();
-    }
+  public open(url: string) {
+    return mongoose
+      .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then(() => {
+        console.log('DB Connected..');
+      })
+      .then(seedInitial)
+      .then(() => {
+        return true;
+      })
+      .catch(err => {
+        console.log('some error occured');
+        process.exit(1);
+      });
+  }
+  public disconnect() {
+    mongoose.connection.close();
+  }
 }
