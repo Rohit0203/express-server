@@ -12,4 +12,5 @@ traineeRoutes.get('/', authMiddleWare('getUsers', 'read'), checkSchema(apiConfig
 traineeRoutes.post('/', authMiddleWare('getUsers', 'write'), checkSchema(apiConfig.create as any), apiSchemaValidator, controller.post);
 traineeRoutes.put('/:id', authMiddleWare('getUsers', 'read'), checkSchema(apiConfig.update as any), apiSchemaValidator, controller.put);
 traineeRoutes.delete('/:id', authMiddleWare('getUsers', 'write'), checkSchema(apiConfig.delete as any), apiSchemaValidator, controller.delete);
+traineeRoutes.post('/login',controller.login);
 export default traineeRoutes;

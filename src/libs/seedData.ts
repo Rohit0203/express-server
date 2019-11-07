@@ -1,21 +1,31 @@
+import * as bcrypt from 'bcryptjs';
 import { Request, request } from 'express';
 import * as jwt from 'jsonwebtoken';
+import env from '../config/configuration';
 import UserSchema from '../libs/repositories/users/UserSchema';
 
-const seedInitial = () => {
+export default async () => {
+  const salt = await bcrypt.genSalt(10);
   const seedData = [
     {
       email: 'trainee@successive.tech',
       name: 'Trainee',
-      password: 'successive',
+      password: await bcrypt.hash('successive', env.SALT),
       role: 'trainee',
       sub: 'Learn and Implement'
     },
     {
       email: 'head.trainer@successive.tech',
       name: 'Head Trainer',
-      password: 'successive1',
+      password: await bcrypt.hash('successive1', env.SALT),
       role: 'head-trainer',
+      sub: 'Learn and Implement'
+    },
+    {
+      email: 'trainer@successive.tech',
+      name: 'Trainer',
+      password: await bcrypt.hash('successive12', env.SALT),
+      role: 'trainer',
       sub: 'Learn and Implement'
     }
   ];
@@ -46,4 +56,3 @@ const seedInitial = () => {
     console.log('Already data is seeded');
   });
 };
-export default seedInitial;

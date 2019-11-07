@@ -8,7 +8,8 @@ import { NextFunction, Request, Response } from 'express';
 export const authMiddleWare = (
   moduleName: string,
   permissionType: string
-) => async (req: Request, res: Response, next: NextFunction) => {
+) => async (req: any, res: Response, next: NextFunction) => {
+  console.log(req.body);
   const header: any = req.headers.authorization;
   const token: any = header.split(' ')[1];
   verify(
@@ -21,7 +22,7 @@ export const authMiddleWare = (
           msg: 'Unauthorized Access'
         });
       }
-      req.body = decoded;
+      req.userData = decoded;
       const { _id } = decoded;
       await UserSchema.findOne({ _id: mongoose.Types.ObjectId(_id) })
         .then((data: any) => {

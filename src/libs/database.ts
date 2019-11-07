@@ -13,7 +13,7 @@ export default class Database {
         return true;
       })
       .catch(err => {
-        console.log('some error occured');
+        console.log(err);
         process.exit(1);
       });
   }
